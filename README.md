@@ -1,5 +1,7 @@
 #  BioNames as a Catalogue of Life Data Package (ColDP)
 
+[![DOI](https://zenodo.org/badge/528528140.svg)](https://zenodo.org/badge/latestdoi/528528140)
+
 ## Notes
 
 Input data is a TSV dump of the table `ion.names`. We parse that and extract rows that are relevant to either ChecklistBank or RDF.
@@ -40,6 +42,9 @@ FROM names
 WHERE  publication IS NOT NULL;
 ```
 
+### LFS
+
+Note that the `.tsv` files may need LFS to be committed, which in turn means we need to adjust a setting to include them in the archive software a release, see [About Git LFS objects in archives](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-git-lfs-objects-in-archives-of-your-repository).
 
 
 ### Triple store
