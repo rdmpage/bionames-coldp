@@ -1,0 +1,48 @@
+---
+key: 128415
+title: BioNames Literature
+alias: BioNames Literature
+description: "BioNames is a database of taxa, texts, and trees. It includes taxonomic\
+  \ names for animals (and other organisms covered by the ICZN), full text literature\
+  \ from BioStor and BHL, links to digital literature (via CrossRef, CiNii, Gallica,\
+  \ JSTOR, and other archives), taxonomic classifications (GBIF and NCBI, cross-linked\
+  \ using EOL, which also provides the images), and phylogenetic trees from PhyLoTA."
+version: 2023-05-27
+contact:
+  orcid: 0000-0002-7101-9767
+  given: Roderic
+  family: Page
+  rorid: 00vtgdb53
+  city: Glasgow
+  email: Roderic.Page@glasgow.ac.uk
+  address: Glasgow
+  organisation: University of Glasgow
+keyword: []
+geographicScope: Global
+taxonomicScope: Animalia
+completeness: 0
+license: cc0
+url: https://bionames.org
+source:
+ -
+  id: https://bionames.org
+  type: dataset
+  author:
+   -
+    family: Page
+    given: Roderic D. M.
+  title: BioNames
+  citation: "Page, R. D. M. BioNames. https://bionames.org"
+  unparsed: false
+  url: https://bionames.org
+ -
+  id: 10.7717/peerj.190
+  type: article-journal
+  author:
+   -
+    family: Page
+    given: Roderic D. M.
+  title: "BioNames: linking taxonomy, texts, and trees"
+  citation: "Page, R. D. M. BioNames: linking taxonomy, texts, and trees. https://doi.org/10.7717/peerj.190"
+  unparsed: false
+  doi: 10.7717/peerj.190
