@@ -24,9 +24,14 @@ $name_key_mapping = array
 'microreference'		=> 'publishedInPage',
 'sici'					=> 'referenceID',
 
+'wikidata'				=> 'referenceID',
+
 );
 
+
+
 $name_headings = array_values($name_key_mapping);
+$name_headings = array_unique($name_headings);
 $name_headings[] = 'code';
 $name_headings[] = 'link';
 
@@ -37,6 +42,7 @@ $sicis = array();
 $reference_key_mapping = array
 (
 'sici'			=> 'ID',
+'wikidata'		=> 'ID',
 
 'type'			=> 'type',
 
@@ -60,6 +66,7 @@ $reference_key_mapping = array
 );
 
 $reference_headings = array_values($reference_key_mapping);
+$reference_headings = array_unique($reference_headings);
 $reference_headings[] = 'link';
 
 
@@ -135,6 +142,21 @@ while (!feof($file_handle))
 							case 'id':
 								$export->{$name_key_mapping[$k]} = 'urn:lsid:organismnames.com:name:' . $v;							
 								$export->link = 'https://bionames.org/' . $export->{$name_key_mapping[$k]};							
+								break;
+								
+							case 'sici':
+								if (isset($obj->wikidata))
+								{
+									// we will use wikidata so eat sici
+								}
+								else
+								{
+									$export->{$name_key_mapping[$k]} = $v;
+								}
+								break;
+								
+							case 'wikidata':
+								$export->{$name_key_mapping[$k]} = $v;
 								break;
 					
 							default:
@@ -293,11 +315,12 @@ while (!feof($file_handle))
 	$row_count++;
 	
 	/*
-	if ($row_count > 100000)
+	if ($row_count > 100)
 	{
 		exit();
 	}
 	*/
+	
 	
 }
 ?>
