@@ -16,9 +16,9 @@ $ADODB_FETCH_MODE = ADODB_FETCH_ASSOC;
 
 $db->EXECUTE("set names 'utf8'"); 
 
-$keys = array('id','cluster_id','group','nameComplete','taxonAuthor','uninomial','genusPart','infragenericEpithet','rank','publication','year','microreference','title','journal','issn','volume','issue','spage','epage','isPartOf', 'isbn','doi','sici','wikidata');
+$keys = array('ID','scientificName','authorship','rankstring','publishedInYear','doi','wikidata','citation');
 
-echo join("\t", $keys) . "\n";
+file_put_contents('header.tsv', join("\t", $keys) . "\n");
 
 $page = 1000;
 $offset = 0;
@@ -27,7 +27,16 @@ $done = false;
 
 while (!$done)
 {
-	$sql = 'SELECT * FROM names WHERE doi IS NOT NULL OR wikidata IS NOT NULL';
+	$sql = 'SELECT 
+		CONCAT("ion:", id) AS ID,
+		nameComplete AS scientificName,
+		taxonAuthor AS authorship,
+		rank AS rankstring,
+		year AS publishedInYear,
+		doi,
+		wikidata,
+		publication AS citation
+	FROM names WHERE doi IS NOT NULL';
 	
 	$sql .= ' LIMIT ' . $page . ' OFFSET ' . $offset;
 

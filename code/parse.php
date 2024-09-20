@@ -71,7 +71,7 @@ $reference_headings[] = 'link';
 
 
 
-$mode = 0; // 1 = references, 0 = taxa
+$mode = 1; // 1 = references, 0 = taxa
 
 switch ($mode)
 {
