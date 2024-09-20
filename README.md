@@ -54,3 +54,29 @@ Create triples using `export-triples.php` which generates triples creating taxon
 ```
 curl 'http://localhost:7878/store?graph=http://www.organismnames.com' -H 'Content-Type:application/n-triples' --data-binary '@triples.nt'  --progress-bar
 ```
+
+### DOI names dump
+
+To create a simple dump of names that are linked to DOIs run `names_doi.php > ion-unsorted.tsv` in `/code`. This will write a header file separately, then dump the data. To sort the dumped names:
+
+```
+sort ion-unsorted.tsv > ion.tsv
+```
+
+```
+cat header.tsv ion.tsv > ion.tsv 
+```
+
+### Versioning
+
+Between releases we can use [csvdiff](https://github.com/aswinkarthik/csvdiff) to compare TSV files and publish those diff files so that users can see what has changed.
+
+For example,
+
+```
+csvdiff references-old.tsv references.tsv --lazyquotes -s "\t" > references.diff
+```
+
+```
+csvdiff names-old.tsv names.tsv -s "\t" > names.diff
+```

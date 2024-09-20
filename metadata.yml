@@ -1,5 +1,5 @@
 ---
-key: 128415
+doi: 10.5281/zenodo.7977713
 title: BioNames Literature
 alias: BioNames Literature
 description: "BioNames is a database of taxa, texts, and trees. It includes taxonomic\
@@ -7,7 +7,7 @@ description: "BioNames is a database of taxa, texts, and trees. It includes taxo
   \ from BioStor and BHL, links to digital literature (via CrossRef, CiNii, Gallica,\
   \ JSTOR, and other archives), taxonomic classifications (GBIF and NCBI, cross-linked\
   \ using EOL, which also provides the images), and phylogenetic trees from PhyLoTA."
-version: 2023-05-27
+version: 2024-09-20
 contact:
   orcid: 0000-0002-7101-9767
   given: Roderic
