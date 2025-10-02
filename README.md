@@ -6,7 +6,7 @@
 
 Input data is a TSV dump of the table `ion.names`. We parse that and extract rows that are relevant to either ChecklistBank or RDF.
 
-For ChecklistBank we extract names and references (depending on the setting of `$mode` in `parse.php`) and output TSV files that can be uploaded to ChecklistBank.
+The file `dump.php` uses the following SQL to extract a subset of `ion.names` that has publication data:
 
 ```
 SELECT 
@@ -41,6 +41,9 @@ IFNULL(wikidata,'') AS wikidata
 FROM names 
 WHERE  publication IS NOT NULL;
 ```
+
+For ChecklistBank we extract names and references (depending on the setting of `$mode` in `parse.php`) and output TSV files that can be uploaded to ChecklistBank.
+
 
 ### LFS
 
